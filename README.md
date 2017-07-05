@@ -12,10 +12,8 @@ The first of these experiments was a single sample trained regressive ANN.
 Provided with an input of 1 and output of an painting of a cow, the ANN was fit and then was asked to predict the image that 2 would represent.
 
 Here it is!
-__
 
 ![alt text](https://github.com/wa721/ANNArt/blob/master/masterpieceComparison.png?raw=true)
-__
 
 This is rather unsurprising given it was only trained on a single sample, however it does show how one might begin to build an "artistic" neural net, which, provided with a new subject, produces it's own piece.
 
