@@ -7,8 +7,15 @@ Rather, this is an exploration of what algorithmic art might look like. How we m
 
 __
 
-The first of these experiments will be working to recreate paintings given a number of input parameters. These will be quantified classifications (such as desired colours represented as three RGB numbers, numbers of objects as an integer, the subject of the art to perhaps be a integer code), and other characteristics present in some popular image datasets.
+The first of these experiments was a single sample trained regressive ANN.
 
-The first models made in this project will be regressive neural networks made using Sci-Kit Leanr MLPRegressor Aritificial Neural Networks.
+Provided with an input of 1 and output of an painting of a cow, the ANN was fit and then was asked to predict the image that 2 would represent.
+
+Here it is!
+__
+
+__
+
+This is rather unsurprising given it was only trained on a single sample, however it does show how one might begin to build an "artistic" neural net, which, provided with a new subject, produces it's own piece.
 
 __
