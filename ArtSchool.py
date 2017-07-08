@@ -31,18 +31,16 @@ maxNumImages = 0
 #scrape the images
 for image in range(0,1000):
     #attribute the image in question
-    IIQ = url_to_image(URLs.iloc[image,0] #image in question
+    IIQ = url_to_image(URLs.iloc[image,0]) #image in question
     #pull the label
     labels.append(URLs.iloc[image,3])
     artItem = []
-    for pixel in range(0,len(IIQ)-1):
-        for section in range(0,540):
+    for pixel in range(0,74):
+        for section in range(0,99):
             artItem.append(IIQ[pixel][section][0])
             artItem.append(IIQ[pixel][section][1])
             artItem.append(IIQ[pixel][section][2])
     ExampleArt.append(artItem)
-    print len(IIQ[0])
-    print len(IIQ)
 
 #for the label, lets generate it as an array specifying
 # the number of legs,
@@ -51,7 +49,7 @@ for image in range(0,1000):
 # has wings?
 
 
-labelDF = pd.DataFrame(index=range(1,len(labels)), columns=["legs","height","length","wings"))
+labelDF = pd.DataFrame(index=range(1,len(labels)), columns=["legs","height","length","wings"])
 labelDF = adjacency.fillna(0)
 
 for item in range(0,len(labels)):
@@ -71,7 +69,7 @@ for item in range(0,len(labels)):
         labelDF.iloc[item,2] = 57
         labelDF.iloc[item,3] = 90
         labelDF.iloc[item,4] = 0
-    elif labels[item == "horse":
+    elif labels[item] == "horse":
         labelDF.iloc[item,1] = 4
         labelDF.iloc[item,2] = 160
         labelDF.iloc[item,3] = 240
@@ -91,28 +89,7 @@ artist = MLPRegressor(hidden_layer_sizes=(2,5,25,100), activation='relu', solver
 
 artist.fit(labelDF,ExampleArt)
 
-#specify the parameters of the "art" to be produced.
-# list as [reds,greens,blues,subject,#objects,mood]
-inspiration = [2]
 
-#make the art
-artwork = artist.predict(inspiration)
-artwork = artwork[0]
-m = max(artwork)
-for colour in range(0,(len(artwork)-1)):
-    artwork[colour] = int(artwork[colour]/m*255)
-print artwork
-#save the artwork!
-
-ImageContainer = []
-pixelCount = 0
-for pixel in range(0,len(IIQ)-1):
-    ImageContainer.append([])
-    for section in range(0,540):
-        ImageContainer[pixel].append(np.array([artwork[pixelCount],artwork[pixelCount+1],artwork[pixelCount+2]]))
-        pixelCount += 3
-    ImageContainer[pixel] = np.asarray(ImageContainer[pixel])
-
-ImageContainer = np.asarray(ImageContainer)
-
-cv2.imwrite("masterpiece.jpg",ImageContainer)
+import pickle
+Savedartist = pickle.dumps(artist)
+print "School's out"
