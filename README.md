@@ -18,3 +18,11 @@ Here it is!
 This is rather unsurprising given it was only trained on a single sample, however it does show how one might begin to build an "artistic" neural net, which, provided with a new subject, produces it's own piece.
 
 __
+
+The second example trained on the paintings dataset, generously made available through the Visual Geometr Group based out of Oxford (https://www.robots.ox.ac.uk/~vgg/data/paintings/). 
+
+Trained on the animal images in this, with the number of legs and the height of the animal (sourced from my refined ability to know the number of legs a cow has and some wiki stats), asked the trained network to produce a four-legged, 120cm tall, 130cm long animal without wings. 
+
+Here's it's result! 
+
+![alt text](https://github.com/wa721/ANNArt/blob/master/ANNArt/masterpiece.jpg?raw=true)
