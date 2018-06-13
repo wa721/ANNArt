@@ -25,4 +25,4 @@ Trained on the animal images in this, with the number of legs and the height of 
 
 Here's it's result! 
 
-![alt text](https://github.com/wa721/ANNArt/blob/master/ANNArt/masterpiece.jpg?raw=true)
+![alt text](https://github.com/wa721/ANNArt/blob/master/masterpiece.jpg?raw=true)
